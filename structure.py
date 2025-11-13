@@ -86,8 +86,28 @@ class FAQ:
     pass
 
 class Chatlog:
+    #information for use loading the chatbot
     text = ""
     identifier = ""
     DateTime = ""
-    #information for use loading the chatbot
+    def __init__(self, text, identifier, DateTime):
+        self.text = text
+        self.identifier = identifier
+        self.DateTime = DateTime
+    def setText(self, text):
+        self.text = text
+        return
+    def setIdentifier(self, identifier):
+        self.identifier = identifier
+        return
+    def setDateTime(self, DateTime):
+        self.DateTime = DateTime
+        return
+    def getText(self):
+        return self.text
+    def getIdentifier(self):
+        return self.identifier
+    def getDateTime(self):
+        return self.DateTime
+    
     pass
