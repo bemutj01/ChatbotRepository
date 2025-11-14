@@ -20,10 +20,29 @@ class resetPassPage:
     pass
 
 class employeePage:
-    employee = ""
-    notify = False
-    # TODO: implement employee page.
-    pass
+    # Employee page representation with contact info property
+    def __init__(self, employee="", notify=False, userPhoneNumber="", userEmail=""):
+        self.employee = employee
+        self.notify = notify
+        self.userPhoneNumber = userPhoneNumber
+        self.userEmail = userEmail
+        self._userContactInfo = [self.userPhoneNumber, self.userEmail]
+
+    @property
+    def userContactInfo(self):
+        """Return [phone, email] for the employee."""
+        return list(self._userContactInfo)
+
+    @userContactInfo.setter
+    def userContactInfo(self, value):
+        """Set the contact info; expects a list/tuple of two items: [phone, email].
+
+        This also updates `userPhoneNumber` and `userEmail` fields.
+        """
+        if not isinstance(value, (list, tuple)) or len(value) != 2:
+            raise ValueError("userContactInfo must be a list or tuple [phone, email]")
+        self._userContactInfo = [value[0], value[1]]
+        self.userPhoneNumber, self.userEmail = self._userContactInfo
 
 
 class chatPage:
@@ -75,15 +94,34 @@ class Chatbot:
     pass
 
 class FAQ:
-    frequentlyAskedQuestions = []
-    def compareQueryAnswer():
-        # TODO: implement query and answer comparison
-        return
-    def sendAnswers():
-        # TODO: implement sending answers to chatbot
-        return
-    #Stores FAQ data for reuse.
-    pass
+    """FAQ storage and lookup using a 2D list of [question, answer]."""
+    def __init__(self, faqs=None):
+        # Expect faqs to be an iterable of [question, answer] pairs.
+        self.faqs = [list(pair) for pair in faqs] if faqs else []
+
+    def compareQueryAnswer(self, query):
+        """Return the index of a question that matches `query`, or -1 if none."""
+        if not isinstance(query, str):
+            return -1
+        q_norm = query.strip().lower()
+        for i, pair in enumerate(self.faqs):
+            if not pair:
+                continue
+            stored_q = pair[0]
+            if isinstance(stored_q, str) and stored_q.strip().lower() == q_norm:
+                return i
+        return -1
+
+    def sendAnswer(self, query):
+        """Return the answer corresponding to `query`, or `None` if not found."""
+        idx = self.compareQueryAnswer(query)
+        if idx != -1:
+            return self.faqs[idx][1]
+        return None
+
+    def add_faq(self, question, answer):
+        """Add a question/answer pair to the FAQ store."""
+        self.faqs.append([question, answer])
 
 class Chatlog:
     #information for use loading the chatbot
