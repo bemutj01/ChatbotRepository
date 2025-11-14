@@ -1,22 +1,75 @@
+users=[]
+
 class loginPage:
+    @staticmethod
     def checkUserPass(username, password):
-        # TODO: implement user/pass verification
-        return False; 
-    def login(username, password): 
-        # TODO: implement page jump to chatPage if verified
-        return 
-    
-    def resetPass(username):
-        # TODO: implement page jump to resetPassPage
-        return
-    # TODO: implement login page
+        from structure import users
+        for u in users:
+            if u.username == username and u.password == password:
+                return True
+        return False
+
+    @staticmethod
+    def login():
+        from structure import users
+        print("\n--- LOGIN PAGE ---")
+        username = input("Enter username: ")
+        password = input("Enter password: ")
+
+        if loginPage.checkUserPass(username, password):
+            print("Login successful!")
+            for u in users:
+                if u.username == username:
+                    return u
+        else:
+            print("Incorrect username or password.\n")
+            return None
+
+    @staticmethod
+    def resetPass():
+        from reset import ResetPasswordPage
+        return ResetPasswordPage.resetPassword()
     pass
 
 class resetPassPage:
-    def resetPassword(username, newPassword):
-        # TODO: implement password reset functionality
-        return
-    # TODO: implement reset password page
+    @staticmethod
+    def resetPassword():
+        from structure import users
+        print("\n--- RESET PASSWORD PAGE ---")
+
+        username = input("Enter your username: ")
+
+        for u in users:
+            if u.username == username:
+                new_pass = input("Enter your new password: ")
+                u.password = new_pass
+                print("Password reset successful!\n")
+                return True
+
+        print("User not found.\n")
+        return False
+    pass
+
+class registrationPage:
+    @staticmethod
+    def register():
+        from structure import users, User
+        print("\n--- REGISTRATION PAGE ---")
+
+        username = input("Enter new username: ")
+
+        for u in users:
+            if u.username == username:
+                print("User already exists!\n")
+                return False
+
+        password = input("Enter new password: ")
+
+        new_user = User(username, password)
+        users.append(new_user)
+
+        print("Registration successful!\n")
+        return True
     pass
 
 class employeePage:
@@ -62,12 +115,13 @@ class chatPage:
 
 
 class User:
-    username = ""
-    password = ""
-    chatlogs = []
-    def sendChatlog():
-        # TODO: implement chatlog send to chatbot
-        return
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+        self.chatlogs = []
+
+    def sendChatlog(self, text):
+        self.chatlogs.append(text)
     pass
 
 class Chatbot:

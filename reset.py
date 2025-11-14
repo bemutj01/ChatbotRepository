@@ -1,18 +1,7 @@
-from registration import USER_DB  
+from structure import resetPassPage
 
-class ResetPasswordPage:
-    @staticmethod
-    def reset_password():
-        print("\n RESET PASSWORD PAGE ")
+def run_reset():
+    resetPassPage.resetPassword()
 
-        username = input("Enter your username: ")
-
-        if username not in USER_DB:
-            print("Error: User does not exist.\n")
-            return False
-
-        new_password = input("Enter your new password: ")
-        USER_DB[username] = new_password
-
-        print("Password reset successfully!\n")
-        return True
+if __name__ == "__main__":
+    run_reset()
