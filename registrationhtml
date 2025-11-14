@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+        }
+        .container {
+            width: 300px;
+            margin: 80px auto;
+        }
+        label, input, button, p {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 16px;
+        }
+        input {
+            width: 100%;
+            padding: 6px;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            cursor: pointer;
+        }
+        #message {
+            margin-top: 10px;
+            min-height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Registration Page</h2>
+
+        <label>Email/Username:</label>
+        <input type="text" id="username">
+
+        <label>Password:</label>
+        <input type="password" id="password">
+
+        <button onclick="registerUser()">Register</button>
+
+        <p id="message"></p>
+
+        <p>
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
+    </div>
+
+    <script>
+        // Simple in-memory user database (like USER_DB in Python)
+        const USER_DB = {};
+
+        function registerUser() {
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value;
+            let msg = document.getElementById("message");
+
+            msg.textContent = "";
+
+            // ---- Match Python Registration Logic ----
+
+            // If user already exists:
+            if (username in USER_DB) {
+                msg.textContent = "Error: User already exists.";
+                msg.style.color = "red";
+                return;
+            }
+
+            // Create user
+            USER_DB[username] = password;
+
+            msg.textContent = "Registration successful!";
+            msg.style.color = "green";
+
+            // Example redirect:
+            // window.location.href = "login.html";
+        }
+    </script>
+
+</body>
+</html>

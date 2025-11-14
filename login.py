@@ -1,9 +1,20 @@
-from structure import loginPage
+from registration import USER_DB   
 
-def run_login():
-    user = loginPage.login()
-    if user:
-        print(f"Welcome {user.username}!")
+class LoginPage:
+    @staticmethod
+    def login():
+        print("\n LOGIN PAGE ")
 
-if __name__ == "__main__":
-    run_login()
+        username = input("Enter username: ")
+        password = input("Enter password: ")
+
+        if username not in USER_DB:
+            print("Error: User does not exist.\n")
+            return False
+
+        if USER_DB[username] != password:
+            print("Error: Incorrect password.\n")
+            return False
+
+        print("Login successful!\n")
+        return True
