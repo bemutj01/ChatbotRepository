@@ -71,7 +71,7 @@
             cursor: pointer;
             font-family: "Times New Roman", Times, serif;
            }
-           button: hover {
+           button:hover {
             background-color: #555555;
            }
            .helper-links {
