@@ -95,53 +95,19 @@ class employeePage:
         self.userPhoneNumber, self.userEmail = self._userContactInfo
 
 
-class chatPage:
-    user = None
-    def speak():
-        # TODO: implement reading user input
-        return
-    def respond():
-        # TODO: implement chatbot response generation
-        return
-    def summarize():
-        # TODO: implement chat summary generation
-        return
-    # TODO: implement chat page
-
-    pass
-
-
 class User:
     def __init__(self, username, password):
         self.username = username
         self.password = password
         self.chatlogs = []
-
-    def sendChatlog(self, text):
-        self.chatlogs.append(text)
-    pass
-
-class Chatbot:
-    chatlog = []
-    def loadchatlog():
-        # TODO: receive sendChatlog data
-        return
-    def respond():
-        # TODO: implement chatbot response generation
-        return
-    def contactEmployee():
-        # TODO: implement contact employee functionality
-        return
-    def read():
-        # TODO: implement reading chatlog
-        return
-    def checkFAQ():
-        # TODO: implement FAQ checking functionality
-        return
-    def summarize():
-        # TODO: implement chat summary generation
-        return
-    #Sends responses to chatPage
+    def updateChatlog(self, chatlog):
+        #Appends a chatlog to the user's chatlogs
+        self.chatlogs.append(chatlog)
+    
+    def sendChatlog(self):
+        #Sends the user's chatlogs to other class.
+        return self.chatlogs
+    
     pass
 
 class FAQ:
