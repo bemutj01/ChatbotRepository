@@ -11,8 +11,7 @@ class loginPage:
 
     @staticmethod
     def login():
-        from structure import users
-        print("\n--- LOGIN PAGE ---")
+        print("\n LOGIN PAGE ")
         username = input("Enter username: ")
         password = input("Enter password: ")
 
@@ -27,15 +26,13 @@ class loginPage:
 
     @staticmethod
     def resetPass():
-        from reset import ResetPasswordPage
-        return ResetPasswordPage.resetPassword()
+        return resetPassPage.resetPassword()
     pass
 
 class resetPassPage:
     @staticmethod
     def resetPassword():
-        from structure import users
-        print("\n--- RESET PASSWORD PAGE ---")
+        print("\n RESET PASSWORD PAGE ")
 
         username = input("Enter your username: ")
 
@@ -53,8 +50,8 @@ class resetPassPage:
 class registrationPage:
     @staticmethod
     def register():
-        from structure import users, User
-        print("\n--- REGISTRATION PAGE ---")
+        
+        print("\n REGISTRATION PAGE ")
 
         username = input("Enter new username: ")
 

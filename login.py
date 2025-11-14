@@ -1,20 +1,10 @@
-from registration import USER_DB   
+from structure import loginPage
 
-class LoginPage:
-    @staticmethod
-    def login():
-        print("\n LOGIN PAGE ")
+def main():
+    user = loginPage.login()
+    if user:
+        print(f"Welcome, {user.username}!")
+        # later you can redirect to chatPage here
 
-        username = input("Enter username: ")
-        password = input("Enter password: ")
-
-        if username not in USER_DB:
-            print("Error: User does not exist.\n")
-            return False
-
-        if USER_DB[username] != password:
-            print("Error: Incorrect password.\n")
-            return False
-
-        print("Login successful!\n")
-        return True
+if __name__ == "__main__":
+    main()
