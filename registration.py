@@ -1,20 +1,7 @@
-USER_DB = {}   
-class RegistrationPage:
-    @staticmethod
-    def register():
-        print("\n USER REGISTRATION PAGE ")
+from structure import registrationPage
 
-        username = input("Enter email/username: ")
+def main():
+    registrationPage.register()
 
-        # Check existing users
-        if username in USER_DB:
-            print("Error: User already exists.\n")
-            return False
-
-        password = input("Enter password: ")
-
-        # Create user
-        USER_DB[username] = password
-
-        print("Registration successful! \n")
-        return True
+if __name__ == "__main__":
+    main()
