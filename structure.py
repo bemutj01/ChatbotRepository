@@ -1,33 +1,7 @@
 users=[]
 
-class loginPage:
-    @staticmethod
-    def checkUserPass(username, password):
-        from structure import users
-        for u in users:
-            if u.username == username and u.password == password:
-                return True
-        return False
-
-    @staticmethod
-    def login():
-        print("\n LOGIN PAGE ")
-        username = input("Enter username: ")
-        password = input("Enter password: ")
-
-        if loginPage.checkUserPass(username, password):
-            print("Login successful!")
-            for u in users:
-                if u.username == username:
-                    return u
-        else:
-            print("Incorrect username or password.\n")
-            return None
-
-    @staticmethod
-    def resetPass():
-        return resetPassPage.resetPassword()
-    pass
+class loginPage:x  
+pass
 
 class resetPassPage:
     @staticmethod

@@ -1,0 +1,75 @@
+/* LOGIN PAGE CSS */
+
+.login-page .container {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+}
+
+.login-page .login-card {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    width: 320px;
+}
+
+.login-page h1 {
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.login-page .form-group {
+    margin-bottom: 15px;
+}
+
+.login-page label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.login-page input[type="text"],
+.login-page input[type="password"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+}
+
+.login-page button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.login-page button:hover {
+    background-color: #555;
+}
+
+.login-page .message {
+    margin-top: 15px;
+    font-size: 14px;
+    min-height: 18px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.login-page .error {
+    color: #b00020;
+}
+
+.login-page .success {
+    color: #008000;
+}
