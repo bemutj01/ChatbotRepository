@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
-=======
 users = []
 
->>>>>>> Stashed changes
 class loginPage:
     def checkUserPass(username, password):
         # TODO: implement user/pass verification
@@ -18,12 +15,6 @@ class loginPage:
     pass
 
 class resetPassPage:
-<<<<<<< Updated upstream
-    def resetPassword(username, newPassword):
-        # TODO: implement password reset functionality
-        return
-    # TODO: implement reset password page
-=======
     @staticmethod
     def resetPassword():
         print("\n RESET PASSWORD PAGE ")
@@ -47,7 +38,6 @@ class registrationPage:
         # Lazy import to avoid circular top-level imports
         from registration import register as _register
         return _register(users, User)
->>>>>>> Stashed changes
     pass
 
 class employeePage:
@@ -71,26 +61,6 @@ class employeePage:
             raise ValueError("userContactInfo must be a list or tuple [phone, email]")
         self._userContactInfo = [value[0], value[1]]
         self.userPhoneNumber, self.userEmail = self._userContactInfo
-
-
-<<<<<<< Updated upstream
-class chatPage:
-    user = None
-    def speak():
-        # TODO: implement reading user input
-        return
-    def respond():
-        # TODO: implement chatbot response generation
-        return
-    def summarize():
-        # TODO: implement chat summary generation
-        return
-    # TODO: implement chat page
-
-    pass
-
-=======
->>>>>>> Stashed changes
 
 class User:
     username = ""
