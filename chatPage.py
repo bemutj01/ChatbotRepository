@@ -36,9 +36,11 @@ class Chatbot:
         #Loads chatlog from user
         self.chatlog = user.sendChatLog()
     def respond(self):
-        #Generates response based on most recent text in chatlog
+        #Generates response:
         respText = ""
         text = self.chatlog[-1].text
+        if self.chatlog:
+             respText = "Hello! How can I help you?"
         checkFAQResult = self.checkFAQ(text)
         if checkFAQResult:
             respText = checkFAQResult
@@ -50,7 +52,7 @@ class Chatbot:
         self.chatlog.append(newRespLog)
         self.user.updateChatlog(newRespLog)
         return self.chatlog
-    def contactEmployee():
+    def contactEmployee(self):
         #Returns simulated employee contact response
         return "Employee has been contacted. Please wait for their response."
     def read(self, text):
@@ -60,10 +62,10 @@ class Chatbot:
         self.chatlog.append(newLog)
         self.user.updateChatlog(newLog)
         return
-    def checkFAQ(text):
+    def checkFAQ(self, text):
         # Checks FAQ for answer to text
         return FAQ.sendAnswers(text)
-    def summarize():
+    def summarize(self):
         # Simulated summary of chatlog.
         return "Many topics were discussed in this chat. Some big, some small. But I hope I have been helpful to you in the process."
     def getChatlog(self):

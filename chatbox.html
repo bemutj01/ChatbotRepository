@@ -6,20 +6,34 @@
         <link rel="stylesheet" href="chatbox.css">
 
 </head>
-
+<meta name="viewpoint" content=" width=device-width, initial-scale=1.0"
 <body>
 
 <div class="chat-container">
     <h1>Chat with Support</h1>
 
     <div id="chatlog"></div>
-
+<div id="typingIndicator" class="typing-indicator" style="display:none;">
+    Support is typing... 
+</div>
+<div id=" errorMessage" class="error-message" style="display:none;">
+    Something went wrong. Please try again.
+</div>
     <div class="chat-input">
-        <input type="text" id="userText" placeholder="Type your message..." required>
+    <form class="chat-input" id="chatForm" method="POST" action="/chat">
+     <input 
+            type="text" 
+            id="userText" 
+            name= "userText"
+            placeholder="Type your message..." 
+            required
+            autocomplete="off"
+            >
+            <button type="submit"> Send </button>
+    </form>
         <button onclick="sendMessage()">Send</button>
     </div>
 </div>
-
 <script>
     // Send user message to backend
     function sendMessage() {
