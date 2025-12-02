@@ -1,17 +1,36 @@
 users = []
+from reset import resetPassPage 
+users=[]
+
+
 
 class loginPage:
+    @staticmethod
     def checkUserPass(username, password):
-        # TODO: implement user/pass verification
-        return False; 
-    def login(username, password): 
-        # TODO: implement page jump to chatPage if verified
-        return 
-    
-    def resetPass(username):
-        # TODO: implement page jump to resetPassPage
-        return
-    # TODO: implement login page
+        from structure import users
+        for u in users:
+            if u.username == username and u.password == password:
+                return True
+        return False
+
+    @staticmethod
+    def login():
+        print("\n LOGIN PAGE ")
+        username = input("Enter username: ")
+        password = input("Enter password: ")
+
+        if loginPage.checkUserPass(username, password):
+            print("Login successful!")
+            for u in users:
+                if u.username == username:
+                    return u
+        else:
+            print("Incorrect username or password.\n")
+            return None
+
+    @staticmethod
+    def resetPass():
+        return resetPassPage.resetPassword()
     pass
 
 class resetPassPage:
@@ -63,35 +82,18 @@ class employeePage:
         self.userPhoneNumber, self.userEmail = self._userContactInfo
 
 class User:
-    username = ""
-    password = ""
-    chatlogs = []
-    def sendChatlog():
-        # TODO: implement chatlog send to chatbot
-        return
-    pass
-
-class Chatbot:
-    chatlog = []
-    def loadchatlog():
-        # TODO: receive sendChatlog data
-        return
-    def respond():
-        # TODO: implement chatbot response generation
-        return
-    def contactEmployee():
-        # TODO: implement contact employee functionality
-        return
-    def read():
-        # TODO: implement reading chatlog
-        return
-    def checkFAQ():
-        # TODO: implement FAQ checking functionality
-        return
-    def summarize():
-        # TODO: implement chat summary generation
-        return
-    #Sends responses to chatPage
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+        self.chatlogs = []
+    def updateChatlog(self, chatlog):
+        #Appends a chatlog to the user's chatlogs
+        self.chatlogs.append(chatlog)
+    
+    def sendChatlog(self):
+        #Sends the user's chatlogs to other class.
+        return self.chatlogs
+    
     pass
 
 class FAQ:
@@ -125,8 +127,28 @@ class FAQ:
         self.faqs.append([question, answer])
 
 class Chatlog:
+    #information for use loading the chatbot
     text = ""
     identifier = ""
     DateTime = ""
-    #information for use loading the chatbot
+    def __init__(self, text, identifier, DateTime):
+        self.text = text
+        self.identifier = identifier
+        self.DateTime = DateTime
+    def setText(self, text):
+        self.text = text
+        return
+    def setIdentifier(self, identifier):
+        self.identifier = identifier
+        return
+    def setDateTime(self, DateTime):
+        self.DateTime = DateTime
+        return
+    def getText(self):
+        return self.text
+    def getIdentifier(self):
+        return self.identifier
+    def getDateTime(self):
+        return self.DateTime
+    
     pass
