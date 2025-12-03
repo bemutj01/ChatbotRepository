@@ -1,4 +1,5 @@
 from reset import resetPassPage 
+from chatPage import chatPage
 users=[]
 
 
@@ -52,6 +53,9 @@ class registrationPage:
         users.append(new_user)
 
         print("Registration successful!\n")
+        print(f"Welcome, {username}! Opening chatbot!\n")
+        chat_page = chatPage(new_user)
+        chat_page.respond()
         return True
     pass
 
